@@ -14,12 +14,12 @@ var wordOrder = function(phrase) {
     }
   }
 
-  for(var i = 15; i > 0; i--){
+  for(var i = sortedWords.length; i > 0; i--){
     for(var key in wordCounter){
       if (wordCounter[key] === i) {
         if( isATie(wordCounter[key], wordCounter[output[output.length - 1 ]])){
           // debugger;
-          if(words.indexOf(key)<words.indexOf(wordCounter[output[output.length - 1 ]]) && sortedWords.indexOf(key)>words.indexOf(wordCounter[output[output.length - 1 ]])) {
+          if(words.indexOf(key)<words.indexOf(lastElement(wordCounter, output)) && sortedWords.indexOf(key)>words.indexOf(lastElement(wordCounter, output))) {
             var shifted = output.pop();
             output.push(key.toString());
             output.push(shifted);
@@ -41,3 +41,8 @@ var wordOrder = function(phrase) {
 var isATie = function(freq1, freq2){
   return freq1===freq2;
 };
+
+var lastElement = function(dictionary, array){
+  return dictionary[array[array.length - 1 ]]
+
+}

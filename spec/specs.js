@@ -16,6 +16,6 @@ describe('wordOrder', function(){
   });
 
   it("returns the words ordered by frequency and if equal frequency the tie-breaker is first appearance", function(){
-    expect(wordOrder("world hello world hello world hello xyz apple")).to.equal("world, hello, xyz, apple");
+    expect(wordOrder("world hello world hello world hello xyz apple banana")).to.equal("world, hello, xyz, apple, banana");
   });
 });
