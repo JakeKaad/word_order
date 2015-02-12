@@ -17,16 +17,11 @@ var wordOrder = function(phrase) {
   for(var i = sortedWords.length; i > 0; i--){
     for(var key in wordCounter){
       if (wordCounter[key] === i) {
-        if( isATie(wordCounter[key], wordCounter[output[output.length - 1 ]])){
-          // debugger;
-          if(words.indexOf(key)<words.indexOf(lastElement(wordCounter, output)) && sortedWords.indexOf(key)>words.indexOf(lastElement(wordCounter, output))) {
-            var shifted = output.pop();
-            output.push(key.toString());
-            output.push(shifted);
-          }else{
-            output.push(key.toString());
-
-          }
+        if( isATie(wordCounter[key], wordCounter[output[output.length - 1 ]])
+            && words.indexOf(key)<words.indexOf(lastElement(wordCounter, output)) && sortedWords.indexOf(key)>words.indexOf(lastElement(wordCounter, output))){
+          var shifted = output.pop();
+          output.push(key.toString());
+          output.push(shifted);
         } else {
           output.push(key.toString());
         }
