@@ -38,6 +38,23 @@ var isATie = function(freq1, freq2){
 };
 
 var lastElement = function(dictionary, array){
-  return dictionary[array[array.length - 1 ]]
+  return dictionary[array[array.length - 1 ]];
 
-}
+};
+
+
+$(document).ready(function() {
+    $("form#words").submit(function(event) {
+    var userInput = wordOrder($("input#input-words").val());
+    $(".results").toggle(function(){
+      $(this).fadeOut("fast");
+    })
+
+    $("span.words").text(userInput);
+    $(".results").toggle(function(){
+      $(this).fadeIn("fast");
+    });
+
+    event.preventDefault();
+  });
+});
